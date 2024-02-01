@@ -10,4 +10,4 @@ export default function Header() {
             <button>Cart(0)</button>
         </nav>
     </ header>
-}
+};
