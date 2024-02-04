@@ -1,6 +1,6 @@
 import Users from './components/Users';
 
-function App() {
+function App () {
   return (
     <div>
       <Users />
@@ -8,9 +8,9 @@ function App() {
   );
 }
 
-const PORT = 3001;
-App.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const PORT = 3000;
+App.listen (PORT, () => {
+  console.log (`Server is running on port ${PORT}`);
 });
 
 export default App;
