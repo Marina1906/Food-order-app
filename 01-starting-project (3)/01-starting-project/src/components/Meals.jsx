@@ -4,20 +4,18 @@ import MealItem from './MealItem.jsx';
 export default function Meals() {
   const [loadedMeals, setLoadedMeals] = useState([]);
 
-  useEffect(() => {
-    async function fetchMeals() {
+  async function fetchMeals() {
+    try {
       const response = await fetch('http://localhost:3000/meals');
-
       if (!response.ok) {
-        // Handle error here
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
-      const meals = await response.json();
-      setLoadedMeals(meals);
+      const data = await response.json();
+      console.log('Data:', data);
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
     }
-
-    fetchMeals();
-  }, []);
+  }
 
   return (
     <ul id="meals">
