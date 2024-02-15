@@ -12,7 +12,13 @@ function cartReducer (state, action) {
             (item)=> item.id === action.item.id
             );
 
-            
+            const updatedItems = []
+
+            if (existingCartItemIndex > -1) {
+
+            }else {
+
+            }
     }
 
     if (action.type ==='REMOVE_ITEM') {
