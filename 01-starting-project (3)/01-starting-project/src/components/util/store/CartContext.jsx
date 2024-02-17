@@ -65,13 +65,18 @@ export function CartContextProvider({children}) {
 
   const cartContext =
   {
-    items: cart.items,
+    items:cart.items,
     addItem,
     removeItem
   };
 
 
 
-  return <CartContext.Provider value = {CartContext}>{children}</CartContext.Provider>;
+  return (
+  <CartContext.Provider value = {cartContext}>{children}</CartContext.Provider>
+  );
 }
+
+
+
 export default CartContext;
