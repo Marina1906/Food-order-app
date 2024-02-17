@@ -58,6 +58,10 @@ export function CartContextProvider({children}) {
     items: cart.items
   };
 
-  return <CartContext.Provider>{children}</CartContext.Provider>;
+  function addItem (item) {}
+
+  functionremoveItem (id) {}
+
+  return <CartContext.Provider vale = {CartContext}>{children}</CartContext.Provider>;
 }
 export default CartContext;
