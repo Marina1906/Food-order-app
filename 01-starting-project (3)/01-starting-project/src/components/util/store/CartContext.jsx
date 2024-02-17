@@ -70,8 +70,8 @@ export function CartContextProvider({children}) {
     removeItem
   };
 
-  console.log (cartContext);
 
-  return <CartContext.Provider vale = {CartContext}>{children}</CartContext.Provider>;
+
+  return <CartContext.Provider value = {CartContext}>{children}</CartContext.Provider>;
 }
 export default CartContext;
