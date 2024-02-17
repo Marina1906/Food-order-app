@@ -33,17 +33,30 @@ function cartReducer (state, action) {
       item => item.id === action.item.id
     );
     const existingCartItem = state.items[existingCartItemIndex];
+
+    const updatedItems = [...state.items];
     if (existingCartItem.quantity === 1) {
-      const updatedItems = [...state.items];
       updatedItems.splice (existingCartItemIndex, 1);
+    } else {
+      const updatedItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity - 1,
+      };
+      updatedItems[existingCartItemIndex] = updatedItem;
     }
+    return {...state, items:updatedItems};
   }
 
   return state;
 }
 
 export function CartContextProvider({children}) {
-  useReducer (cartReducer, {items: []});
+  const [cart, dispatchCartAction] =useReducer (cartReducer, {items: []});
+
+  const cartContext =
+  {
+    items: cart.items
+  };
 
   return <CartContext.Provider>{children}</CartContext.Provider>;
 }
