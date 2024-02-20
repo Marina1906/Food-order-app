@@ -38,9 +38,9 @@ export default function Cart () {
         <Button textOnly onClick={handleCloseCart}>
             Close
         </Button>
-        {cartCtx.items.length > 0 ?(
+        {cartCtx.items.length > 0 && (
         <Button onClick={handleCloseCart}>Go to Checkout</Button>
-        ) : null}
+        )}
       </p>
     </Modal>
   );
