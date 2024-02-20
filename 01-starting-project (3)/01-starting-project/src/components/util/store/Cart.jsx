@@ -14,6 +14,9 @@ export default function Cart() {
     0
   );
 
+  function handleCloseCart () {
+    userProgressCtx.hideCart ();
+  }
   return (
     <Modal className="cart" open={userProgressCtx.progress === 'cart'}>
       <h2>Your Cart</h2>
