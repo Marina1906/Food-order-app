@@ -5,16 +5,22 @@ import CartContext from './CartContext.jsx';
 import {currencyFormatter} from '../formatting.js';
 import Input from './Input.jsx';
 import Button from '../Button.jsx';
+import UserProgressContext from './UserProgressContext.jsx';
 
 export default function Checkout () {
   const cartCtx = useContext (CartContext);
+ const userProgressCtx = useContext (UserProgressContext);
 
   const cartTotal = cartCtx.items.reduce (
     (totalPrice, item) => totalPrice + item.quantity * item.price,
     0
   );
+
+  function handleClose () {
+    userProgressCtx.hideCheckout ();
+  }
   return (
-    <Modal>
+    <Modal open = {userProgressCtx.progress ==='checkout'}>
       <form action="">
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format (cartTotal)}</p>
@@ -27,7 +33,7 @@ export default function Checkout () {
           <Input label="City" type="text" id="city" />
         </div>
         <p className="modal-actions">
-          <Button type="button"textOnly>Close</Button>
+          <Button type="button"textOnly onClick={handleClose}>Close</Button>
           <Button textOnly>Submit Order</Button>
         </p>
       </form>
