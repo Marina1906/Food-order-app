@@ -7,9 +7,11 @@ export default function Meals() {
   data: loadedMeals,
    isLoading, 
   error,
-}= useHttp('http://localhost:3000/meals');
+}= useHttp('http://localhost:3000/meals', {}, []);
 
- 
+ if (isLoading) {
+  return <p>Fetching meals...</p>;
+ }
 
   return (
     <ul id="meals">
