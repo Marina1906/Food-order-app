@@ -31,4 +31,10 @@ const [data, setData] =useState();
     }
     setIsLoading (false);
   }
+
+  return{
+    data,
+    isLoading,
+    error
+  }
 }
