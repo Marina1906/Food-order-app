@@ -30,7 +30,13 @@ export default function Checkout () {
         method: 'POST',
         headers:{
             'Content-Type': 'aplication/json'
-        }
+        },
+        body: JSON.stringify ({
+            order: {
+                
+            }
+
+        })
     });
   }
 
