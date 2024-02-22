@@ -24,7 +24,7 @@ async function sendRequest () {
 
   const resData =  sendHttpRequest();
 } catch (error) {
-    setError(error.message);
+    setError(error.message || 'Something went wrong!');
 }
 
 }
