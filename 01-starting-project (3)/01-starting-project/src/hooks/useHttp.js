@@ -19,6 +19,8 @@ export default function useHttp() {
     const [error, setError] = useState ();
 
 async function sendRequest () {
+   setIsLoading(true);
+   
     try{
 
     
