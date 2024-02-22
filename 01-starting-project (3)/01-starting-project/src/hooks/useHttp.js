@@ -1,5 +1,5 @@
 async function sendHttpRequest (url, config) {
-    fetch (url, config);
+ const response = await fetch (url, config);
 }
 
 export default function useHttp() {
