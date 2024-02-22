@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 async function sendHttpRequest (url, config) {
   const response = await fetch (url, config);
@@ -31,6 +31,10 @@ const [data, setData] =useState();
     }
     setIsLoading (false);
   }
+
+  useEffect( ()=>{
+    sendRequest();
+  }, [sendRequest]);
 
   return{
     data,
