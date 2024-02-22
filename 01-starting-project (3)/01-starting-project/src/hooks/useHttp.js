@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 async function sendHttpRequest (url, config) {
  const response = await fetch (url, config);
 
@@ -13,7 +15,7 @@ async function sendHttpRequest (url, config) {
 }
 
 export default function useHttp() {
-
+ const [error, setError] = useState ();
 
 async function sendRequest () {
     try{
