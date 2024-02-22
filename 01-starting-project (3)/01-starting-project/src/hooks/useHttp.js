@@ -25,6 +25,7 @@ const [data, setData] =useState();
 
     try {
       const resData = sendHttpRequest ();
+      setData(resData);
     } catch (error) {
       setError (error.message || 'Something went wrong!');
     }
