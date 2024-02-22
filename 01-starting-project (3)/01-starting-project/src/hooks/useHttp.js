@@ -32,12 +32,12 @@ export default function useHttp (url, config) {
     setIsLoading (false);
   }, [url, config]);
 
-  useEffect (
-    () => {
-      sendRequest ();
-    },
-    [sendRequest]
-  );
+  useEffect (() => {
+    if (config && config.method === 'GET') {
+        sendRequest ();
+    }
+      
+    },[sendRequest, config]);
 
   return {
     data,
