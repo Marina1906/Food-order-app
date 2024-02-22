@@ -8,6 +8,8 @@ async function sendHttpRequest (url, config) {
         resData.message || 'Something went wrong, failed to send request.'
     );
  }
+
+ return resData;
 }
 
 export default function useHttp() {
