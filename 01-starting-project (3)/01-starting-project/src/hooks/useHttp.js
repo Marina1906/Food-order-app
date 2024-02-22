@@ -13,8 +13,17 @@ async function sendHttpRequest (url, config) {
 }
 
 export default function useHttp() {
-function sendRequest () {
-    sendHttpRequest();
+
+
+async function sendRequest () {
+    try{
+
+    
+
+  const resData =  sendHttpRequest();
+} catch (error) {
+
 }
 
+}
 }
