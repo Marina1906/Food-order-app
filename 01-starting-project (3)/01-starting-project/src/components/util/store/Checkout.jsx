@@ -8,22 +8,21 @@ import Button from '../Button.jsx';
 import UserProgressContext from './UserProgressContext.jsx';
 import useHttp from '../../../hooks/useHttp.js';
 
-
 const requestConfig = {
-    method: 'POST',
-    headers:{
-        'Content-Type': 'application/json'
-    }
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 };
 
 export default function Checkout () {
   const cartCtx = useContext (CartContext);
   const userProgressCtx = useContext (UserProgressContext);
 
- const {data, isLoading, error, sendRequest} = useHttp (
-    'http://localhost:3000/orders', 
-    requestConfig 
-    );
+  const {data, isLoading, error, sendRequest} = useHttp (
+    'http://localhost:3000/orders',
+    requestConfig
+  );
 
   const cartTotal = cartCtx.items.reduce (
     (totalPrice, item) => totalPrice + item.quantity * item.price,
@@ -38,29 +37,28 @@ export default function Checkout () {
     event.preventDefault ();
 
     const fd = new FormData (event.target);
-    const customerData = Object.fromEntries (fd.entries());
+    const customerData = Object.fromEntries (fd.entries ());
 
-    sendRequest ({
+    sendRequest (
+      JSON.stringify ({
         order: {
-            items: cartCtx.items,
-            customer: customerData,
-
+          items: cartCtx.items,
+          customer: customerData,
         },
-     });
+      })
+    );
 
-    fetch ('http://localhost:3000/orders',{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'aplication/json'
+    fetch ('http://localhost:3000/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'aplication/json',
+      },
+      body: JSON.stringify ({
+        order: {
+          items: cartCtx.items,
+          customer: customerData,
         },
-        body: JSON.stringify ({
-            order: {
-                items: cartCtx.items,
-                customer: customerData
-
-            }
-
-        })
+      }),
     });
   }
 
