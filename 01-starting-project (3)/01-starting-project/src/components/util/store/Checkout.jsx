@@ -64,7 +64,9 @@ if (isSending) {
 }
 
 if (data && !error) {
-    return <Modal></Modal>
+    return <Modal open={userProgressCtx.progress === 'checkout'} onClose={handleClose} >
+
+    </Modal>
 }
 
   return (
