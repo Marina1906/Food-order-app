@@ -19,10 +19,12 @@ export default function Checkout () {
   const cartCtx = useContext (CartContext);
   const userProgressCtx = useContext (UserProgressContext);
 
-  const {data, isLoading: isSending, error, sendRequest} = useHttp (
-    'http://localhost:3000/orders',
-    requestConfig
-  );
+  const {
+    data, isLoading: isSending,
+     error,
+      sendRequest,
+    } = useHttp (
+    'http://localhost:3000/orders',requestConfig);
 
   const cartTotal = cartCtx.items.reduce (
     (totalPrice, item) => totalPrice + item.quantity * item.price,
@@ -59,6 +61,10 @@ let actions = (
 
 if (isSending) {
     actions = <span>Sending orderdata...</span>;
+}
+
+if (data && !error) {
+    return <Modal></Modal>
 }
 
   return (
