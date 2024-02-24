@@ -21,11 +21,11 @@ export default function useHttp (url, config, initialData) {
   const [error, setError] = useState ();
 
  const sendRequest = useCallback(
-    async function sendRequest () {
+    async function sendRequest (data) {
     setIsLoading (true);
 
     try {
-      const resData = await sendHttpRequest (url, config);
+      const resData = await sendHttpRequest (url, {...config});
       setData (resData);
     } catch (error) {
       setError (error.message || 'Something went wrong!');
