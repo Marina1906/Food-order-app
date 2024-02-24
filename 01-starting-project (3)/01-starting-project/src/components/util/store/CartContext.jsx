@@ -48,7 +48,9 @@ function cartReducer (state, action) {
     return {...state, items: updatedItems};
   }
 
-  if (action.type === 'CLEAR_CART')
+  if (action.type === 'CLEAR_CART') {
+    return {...state, items: []};
+  }
 
   return state;
 }
