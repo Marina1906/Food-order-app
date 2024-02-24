@@ -19,7 +19,7 @@ export default function Checkout () {
   const cartCtx = useContext (CartContext);
   const userProgressCtx = useContext (UserProgressContext);
 
-  const {data, isLoading, error, sendRequest} = useHttp (
+  const {data, isLoading: isSending, error, sendRequest} = useHttp (
     'http://localhost:3000/orders',
     requestConfig
   );
@@ -46,21 +46,20 @@ export default function Checkout () {
           customer: customerData,
         },
       })
-    );
+    )};
 
-    fetch ('http://localhost:3000/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'aplication/json',
-      },
-      body: JSON.stringify ({
-        order: {
-          items: cartCtx.items,
-          customer: customerData,
-        },
-      }),
-    });
-  }
+let actions = (
+    <>
+     <Button type="button" textOnly onClick={handleClose}>
+        Close
+        </Button>
+          <Button>Submit Order</Button>
+    </>
+);
+
+if (isSending) {
+    actions = <span>Sending orderdata...</span>;
+}
 
   return (
     <Modal open={userProgressCtx.progress === 'checkout'} onClose={handleClose}>
@@ -76,10 +75,10 @@ export default function Checkout () {
           <Input label="City" type="text" id="city" />
         </div>
         <p className="modal-actions">
-          <Button type="button" textOnly onClick={handleClose}>Close</Button>
-          <Button textOnly>Submit Order</Button>
+         {actions}
         </p>
       </form>
     </Modal>
   );
-}
+
+  }
