@@ -74,7 +74,8 @@ dispatchCartAction ({type:'CLEAR_CART'});
   const cartContext = {
     items: cart.items,
     addItem,
-    removeItem
+    removeItem,
+    clearCart
   };
 
   return (
