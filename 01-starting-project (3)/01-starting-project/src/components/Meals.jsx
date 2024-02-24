@@ -9,6 +9,8 @@ export default function Meals() {
   error,
 }= useHttp('http://localhost:3000/meals', {}, []);
 
+console.log(loadedMeals);
+
  if (isLoading) {
   return <p>Fetching meals...</p>;
  }
