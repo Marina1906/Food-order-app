@@ -14,7 +14,7 @@ export default function Meals() {
 console.log(loadedMeals);
 
  if (isLoading) {
-  return <p>Fetching meals...</p>;
+  return <p className='center'>Fetching meals...</p>;
  }
 
   return (
