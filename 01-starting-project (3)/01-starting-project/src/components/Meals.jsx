@@ -2,12 +2,14 @@
 import MealItem from './MealItem.jsx';
 import useHttp from '../hooks/useHttp.js';
 
+const requestConfig = {};
+
 export default function Meals() {
  const {
   data: loadedMeals,
    isLoading, 
   error,
-}= useHttp('http://localhost:3000/meals', {}, []);
+}= useHttp('http://localhost:3000/meals',requestConfig {}, []);
 
 console.log(loadedMeals);
 
