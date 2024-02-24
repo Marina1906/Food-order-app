@@ -48,6 +48,7 @@ export default function useHttp (url, config, initialData) {
     data,
     isLoading,
     error,
-    sendRequest
+    sendRequest,
+    clearData
   };
 }
