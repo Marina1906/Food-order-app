@@ -33,7 +33,7 @@ export default function useHttp (url, config, initialData) {
   }, [url, config]);
 
   useEffect (() => {
-    if (config && config.method === 'GET') {
+    if (config && config.method === 'GET' ||) {
         sendRequest ();
     }
       
