@@ -1,6 +1,7 @@
 
 import MealItem from './MealItem.jsx';
 import useHttp from '../hooks/useHttp.js';
+import Error from './util/store/Error.jsx';
 
 const requestConfig = {};
 
@@ -15,6 +16,10 @@ console.log(loadedMeals);
 
  if (isLoading) {
   return <p className='center'>Fetching meals...</p>;
+ }
+
+ if (error) {
+  <Error title="Failed to fetch meals" message={error}/>;
  }
 
   return (
