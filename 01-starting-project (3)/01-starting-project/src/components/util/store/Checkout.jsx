@@ -7,17 +7,20 @@ import Input from './Input.jsx';
 import Button from '../Button.jsx';
 import UserProgressContext from './UserProgressContext.jsx';
 import useHttp from '../../../hooks/useHttp.js';
-import useHttp from '../../../hooks/useHttp.js';
+
 
 const requestConfig = {
-    method: 'POST'
+    method: 'POST',
+    headers:{
+        'Content-Type': 'application/json'
+    }
 };
 
 export default function Checkout () {
   const cartCtx = useContext (CartContext);
   const userProgressCtx = useContext (UserProgressContext);
 
-  useHttp ('http://localhost:3000/orders', );
+ const {} = useHttp ('http://localhost:3000/orders', );
 
   const cartTotal = cartCtx.items.reduce (
     (totalPrice, item) => totalPrice + item.quantity * item.price,
