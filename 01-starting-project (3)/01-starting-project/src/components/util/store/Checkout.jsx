@@ -37,6 +37,7 @@ export default function Checkout () {
 
   function handleFinish () {
     userProgressCtx.hideCheckout ();
+    cartCtx.clearCart();
   }
 
   function handleSubmit (event) {
