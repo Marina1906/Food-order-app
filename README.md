@@ -5,6 +5,7 @@ Creating reuseable modal component with useEffect...
 Hooks and file reusabillity
 Handling form submission & validation
 Working with cart items and integrating them into separate files
+Creating a reusable input component and importing it into Checkout component 
 Adding a custom input component & managing modal visibility
 Sending a POST request with order data
 Handling Form Submission & Validation
