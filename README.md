@@ -3,8 +3,9 @@ Fetch function, HTTP request. Fetching available data about meals from backend a
 Creating configurable & flexible custom button component
 Creating reuseable modal component with useEffect...
 Hooks and file reusabillity
-Adding a custom input component & managing modal visibility
 Handling form submission & validation
+Working with cart items and integrating them into separate files
+Adding a custom input component & managing modal visibility
 Sending a POST request with order data
 Handling Form Submission & Validation
 Sending a POST Request with Order Data
